@@ -2,6 +2,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(3,INPUT);
   pinMode(5,INPUT);
+  pinMode(9,INPUT);
 
 }
 
@@ -18,27 +19,67 @@ int maxTras = 1420;
 void loop() {
 double ch1 = pulseIn(3,HIGH);
 double ch2 = pulseIn(5,HIGH);
+double ch3 = pulseIn(9,HIGH);
 
-Serial.print("ch2: ");
-Serial.print(ch2);
-Serial.print("\t");
-Serial.print("velocidade: ");
-Serial.print(velocidade(ch2));
-Serial.print("\t");
-Serial.print("analogicoPraFrente: ");
-Serial.print(analogicoPraFrente(ch2));
-Serial.print("\t");
-Serial.print("analogicoPraTras: ");
-Serial.print(analogicoPraTras(ch2));
-Serial.print("\t");
-Serial.print("analogicoPraEsquerda: ");
-Serial.print(analogicoPraEsquerda(ch1));
-Serial.print("\t");
-Serial.print("analogicoPraDireita: ");
-Serial.print(analogicoPraDireita(ch1));
+Serial.print("ch3: ");
+Serial.print(ch3);
+//Serial.print("\t");
+//Serial.print("velocidade: ");
+//Serial.print(velocidade(ch2));
+//Serial.print("\t");
+//Serial.print("analogicoPraFrente: ");
+//Serial.print(analogicoPraFrente(ch2));
+//Serial.print("\t");
+//Serial.print("analogicoPraTras: ");
+//Serial.print(analogicoPraTras(ch2));
+//Serial.print("\t");
+//Serial.print("analogicoPraEsquerda: ");
+//Serial.print(analogicoPraEsquerda(ch1));
+//Serial.print("\t");
+//Serial.print("analogicoPraDireita: ");
+//Serial.print(analogicoPraDireita(ch1));
 Serial.println("");
 
-if()
+if(analogicoPraFrente(ch2)){
+  if(!analogicoPraEsquerda(ch1) && !analogicoPraDireita(ch1)){
+    Serial.print("pra frente");
+    Serial.println("");
+  }
+  else if(analogicoPraDireita(ch1)){
+    Serial.print("pra frente à direita");
+    Serial.println("");
+  }
+  else{
+    Serial.print("pra frente à esquerda");
+    Serial.println("");
+  }
+}
+
+else if(analogicoPraTras(ch2)){
+  if(!analogicoPraEsquerda(ch1) && !analogicoPraDireita(ch1)){
+    Serial.print("pra tras");
+    Serial.println("");
+  }
+  else if(analogicoPraDireita(ch1)){
+    Serial.print("pra tras à direita");
+    Serial.println("");
+  }
+  else{
+    Serial.print("pra tras à esquerda");
+    Serial.println("");
+  }
+}
+
+else {
+  if(analogicoPraDireita(ch1)){
+    Serial.print("giro para direita");
+    Serial.println("");
+  }
+  else if(analogicoPraEsquerda(ch1)){
+    Serial.print("giro para esquerda");
+    Serial.println("");
+  }
+}
 
 }
 
