@@ -2,7 +2,11 @@ void setup() {
   Serial.begin(9600);
   pinMode(3,INPUT);
   pinMode(5,INPUT);
-  pinMode(9,INPUT);
+
+
+  pinMode(11,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(13,OUTPUT);
 
 }
 
@@ -19,10 +23,10 @@ int maxTras = 1420;
 void loop() {
 double ch1 = pulseIn(3,HIGH);
 double ch2 = pulseIn(5,HIGH);
-double ch3 = pulseIn(9,HIGH);
 
-Serial.print("ch3: ");
-Serial.print(ch3);
+
+//Serial.print("ch3: ");
+//Serial.print(ch3);
 //Serial.print("\t");
 //Serial.print("velocidade: ");
 //Serial.print(velocidade(ch2));
@@ -38,12 +42,18 @@ Serial.print(ch3);
 //Serial.print("\t");
 //Serial.print("analogicoPraDireita: ");
 //Serial.print(analogicoPraDireita(ch1));
-Serial.println("");
+//Serial.println("");
+analogWrite(11, 0);
+digitalWrite(12, LOW);
+digitalWrite(13, LOW);
 
 if(analogicoPraFrente(ch2)){
   if(!analogicoPraEsquerda(ch1) && !analogicoPraDireita(ch1)){
-    Serial.print("pra frente");
+    Serial.print(velocidade(ch2));
     Serial.println("");
+    analogWrite(11, velocidade(ch2));
+    digitalWrite(12, HIGH);
+    digitalWrite(13, LOW);
   }
   else if(analogicoPraDireita(ch1)){
     Serial.print("pra frente à direita");
@@ -57,8 +67,11 @@ if(analogicoPraFrente(ch2)){
 
 else if(analogicoPraTras(ch2)){
   if(!analogicoPraEsquerda(ch1) && !analogicoPraDireita(ch1)){
-    Serial.print("pra tras");
+    Serial.print(velocidade(ch2));
     Serial.println("");
+    analogWrite(11, velocidade(ch2));
+    digitalWrite(12, LOW);
+    digitalWrite(13, HIGH);
   }
   else if(analogicoPraDireita(ch1)){
     Serial.print("pra tras à direita");
