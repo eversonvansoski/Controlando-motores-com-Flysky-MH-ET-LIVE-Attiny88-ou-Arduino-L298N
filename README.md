@@ -17,7 +17,7 @@ Este projeto consiste na utilização da interface programável **MH-ET LIVE Att
 
 _____________________________________________________________________________
 
-A seguir está o desenho de como fica o circuito na prática:
+A seguir o desenho de como fica o circuito na prática:
 ![Desenho do Circuito](https://raw.githubusercontent.com/eversonvansoski/FlySky-Arduino---Motor-speed-and-direction-controller/master/circuito.png)
 
 
