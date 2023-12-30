@@ -12,16 +12,16 @@
 //int maxTras = 1420;
 
 
-int motorEsquerdoFrentePin = 5;
-int motorEsquerdoTrasPin = 6;
-int motorDireitoFrentePin = 7;
-int motorDireitoTrasPin = 8;
+int motorEsquerdoFrentePin = 8;
+int motorEsquerdoTrasPin = 7;
+int motorDireitoFrentePin = 6;
+int motorDireitoTrasPin = 5;
 int velocidadePin = 9;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(A0,INPUT);
   pinMode(A1,INPUT);
+  pinMode(A2,INPUT);
 
   pinMode(velocidadePin, OUTPUT);
   pinMode(motorEsquerdoFrentePin, OUTPUT);
@@ -33,7 +33,7 @@ void setup() {
 
 
 void loop() {
-double ch1 = pulseIn(A0,HIGH);
+double ch1 = pulseIn(A2,HIGH);
 double ch2 = pulseIn(A1,HIGH);
 
 
