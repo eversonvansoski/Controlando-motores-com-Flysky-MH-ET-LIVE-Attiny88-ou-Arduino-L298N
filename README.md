@@ -45,4 +45,11 @@ A seguir o circuito montado:
 ![Circuito Montado](https://raw.githubusercontent.com/eversonvansoski/FlySky-Arduino---Motor-speed-and-direction-controller/master/circuito.png)
 
 
+Vídeo com o processo de construção do circuito acima:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DqSgIKihTEY/0.jpg)](https://www.youtube.com/watch?v=DqSgIKihTEY)
+
+
+
+
 
